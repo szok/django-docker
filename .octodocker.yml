@@ -1,0 +1,30 @@
+init_command: /home/blog/docker/init.sh
+environment:
+  - DJANGO_SETTINGS_MODULE=blog.settings.production
+compose:
+  postgres:
+    image: postgres:9.4
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=root
+      - POSTGRES_DB=blog
+
+  web:
+    build: .
+    restart: always
+    ports:
+      - "8001"
+    links:
+      - postgres
+      - redis
+    environment:
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_HOST=postgres
+      - SECRET_KEY=qwerty
+    volumes:
+      - .:/home/blog/
+    command: python manage.py runserver 0.0.0.0:8001
+
+  redis:
+    image: redis:3.0
