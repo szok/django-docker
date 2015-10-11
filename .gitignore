@@ -55,8 +55,7 @@ venv
 *.iml
 *.iws
 
-blog/settings/local.py
-blog/settings/production.py
+*local.py
 
 # collect static output directory
 blog/assets/
