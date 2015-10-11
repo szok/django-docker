@@ -2,12 +2,6 @@ FROM python:3.5
 # FROM python:3.5
 MAINTAINER mateusz@mkurek.com
 
-# set UTF-8 locale
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
-
 # set paths
 ENV BLOG_DIR=/home/blog
 
@@ -15,7 +9,7 @@ ENV BLOG_DIR=/home/blog
 
 ADD . $BLOG_DIR
 WORKDIR $BLOG_DIR
-RUN pip install -r requirements.txt
+RUN pip install -r requirements/production.txt
 
 VOLUME /root/db
 

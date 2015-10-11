@@ -1,0 +1,21 @@
+[
+    {
+        "fields": {
+            "body": "Poland-Scotland 2:2",
+            "category": 1,
+            "posted": "2015-10-11T11:14:40.328Z",
+            "slug": "lewandowski-scores-again",
+            "title": "Lewandowski scores again!"
+        },
+        "model": "blog.blog",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "slug": "sport",
+            "title": "Sport"
+        },
+        "model": "blog.category",
+        "pk": 1
+    }
+]

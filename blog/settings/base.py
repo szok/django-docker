@@ -27,10 +27,10 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
 )
 
-PROJECT_APPS = ()
+PROJECT_APPS = ('blog.blog',)
 
 INSTALLED_APPS += PROJECT_APPS
 
