@@ -55,8 +55,6 @@ venv
 *.iml
 *.iws
 
-*local.py
-
 # collect static output directory
 blog/assets/
 blog/static/
@@ -69,3 +67,7 @@ node_modules/
 # bower packages
 blog/assets-src/vendor/
 .sass-cache/
+
+
+*local.py
+docker-compose.yml

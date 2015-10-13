@@ -1,21 +1,34 @@
-FROM python:3.5
+FROM ubuntu:15.04
 MAINTAINER mateusz@mkurek.com
 
 # set UTF-8 locale
+RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # set paths
-ENV BLOG_DIR=/home/blog
+ENV BLOG_DIR=/home/blog/src
+ENV SCRIPTS_PATH=$BLOG_DIR/docker
+ENV STATIC_PATH=/home/blog/static
+WORKDIR $BLOG_DIR
 
-# TODO: user dir
+ADD docker/* $SCRIPTS_PATH/
+
+# basic provisioning
+RUN $SCRIPTS_PATH/provision.sh
+
+# cleanup
+RUN apt-get clean
+
+ADD requirements $BLOG_DIR/requirements
+RUN pip3 install -r requirements/production.txt
 
 ADD . $BLOG_DIR
-WORKDIR $BLOG_DIR
-RUN pip install -r requirements/production.txt
 
-VOLUME /root/db
+VOLUME $STATIC_PATH
+
+# RUN python3 manage.py collectstatic
 
 EXPOSE 22 8001
-CMD python manage.py runserver 0.0.0.0:8001
+CMD python3 manage.py runserver 0.0.0.0:8001
