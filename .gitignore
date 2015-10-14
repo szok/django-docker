@@ -70,4 +70,4 @@ blog/assets-src/vendor/
 
 
 *local.py
-docker-compose.yml
+# docker-compose.yml
