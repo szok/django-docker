@@ -56,8 +56,8 @@ venv
 *.iws
 
 # collect static output directory
-blog/assets/
-blog/static/
+# blog/assets/
+# blog/static/
 
 .DS_Store
 
