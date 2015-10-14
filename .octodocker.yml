@@ -47,7 +47,7 @@ compose:
 
   data:
     image: postgres:9.4
-    restart: no
+    # restart: no
     volumes:
       - /home/blog/logs
       - /home/blog/static
